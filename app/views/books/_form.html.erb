@@ -1,0 +1,24 @@
+
+
+
+<% if book.errors.any? %>
+    <%= book.errors.count %>error
+    <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    <%end%>
+    
+<%= form_with model: book do |f| %>
+  <div>
+    <%= f.label :title %>
+  </div>
+   <%= f.text_field :title, class: 'form-control book_title' %>
+   
+  <div>
+    <%= f.label :opinion %>
+  </div>
+  <%= f.text_area :body, class: 'form-control book_body' %>
+  
+    <%= f.submit 'Create Book', class: 'btn btn-success' %>
+<% end %>
